@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {csv} from 'd3-request';
-import logo from './logo.svg';
+import Scatterplot from './scatterplot';
 import './App.css';
-
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-
   componentWillMount() {
-    csv('./src/data/birthdeathrates.csv', (error, data) => {
+    csv('./birthdeathrates.csv', (error, data) => {
       if (error) {
         this.setState({loadError: true});
       }
@@ -19,7 +17,6 @@ class App extends Component {
       });
     })
   }
-
 
   render() {
     if (this.state.loadError) {
